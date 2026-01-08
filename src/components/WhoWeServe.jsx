@@ -1,4 +1,5 @@
 import Section from "./Section";
+import six_communities from "../assets/six_communities.png";
 
 const items = [
   { title: "Youth and students", tag: "Skill • Guidance", icon: "✓" },
@@ -73,8 +74,12 @@ export default function WhoWeServe() {
           </p>
         </div>
 
+        <div className="mx-auto max-w-2xl w-full aspect-[3698/4028] rounded-2xl overflow-hidden">
+            <img src={six_communities} alt="Six Communities" className="w-full h-full object-cover" />
+        </div>
+
         {/* MOBILE / TABLET: list */}
-        <div className="lg:hidden">
+        {/* <div className="lg:hidden">
           <ul className="space-y-5">
             {items.map((it, i) => (
               <li key={it.title} className="flex items-start gap-4">
@@ -95,16 +100,13 @@ export default function WhoWeServe() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
 
         {/* DESKTOP: radial (simple, clean) */}
-        {/* DESKTOP: clean radial (no outer box) */}
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <div className="relative mx-auto w-[min(760px,92vw)] aspect-square">
-            {/* subtle circular guide */}
             <div className="pointer-events-none absolute inset-[10%] rounded-full border border-[color:var(--color-border)] opacity-70" />
 
-            {/* center */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="grid place-items-center text-center rounded-full bg-[color:var(--color-peacock)] text-white shadow-sm w-[220px] h-[220px] px-6">
                 <div>
@@ -119,7 +121,6 @@ export default function WhoWeServe() {
               </div>
             </div>
 
-            {/* surrounding items */}
             {items.map((it, i) => (
               <div key={it.title} className={`absolute ${pos[i]}`}>
                 <MiniItem icon={it.icon} title={it.title} tag={it.tag} />
@@ -130,7 +131,7 @@ export default function WhoWeServe() {
           <p className="mt-6 text-center text-[color:var(--color-ink)]/55">
             One core mission supporting six communities.
           </p>
-        </div>
+        </div> */}
       </div>
     </Section>
   );

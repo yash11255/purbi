@@ -1,117 +1,111 @@
 import Section from "./Section";
-import CardBox from "./ui/CardBox";
 
-function Area({ title, description, icon }) {
-  return (
-    <CardBox
-      className="
-        group relative h-full overflow-hidden rounded-[var(--radius-card)]
-        border border-[color:var(--color-border)] bg-white/75 backdrop-blur
-        shadow-[0_16px_55px_rgba(68,29,11,.10),0_2px_10px_rgba(20,48,69,.06)]
-        transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_75px_rgba(68,29,11,.14),0_10px_30px_rgba(20,48,69,.10)]
-      "
-    >
-        
-      {/* top rail */}
-      <div className="pointer-events-none absolute left-0 top-0 h-[3px] w-full bg-[linear-gradient(90deg,var(--color-gold),var(--color-copper),var(--color-peacock))]" />
-
-      {/* subtle dot pattern */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle_at_1px_1px,rgba(20,48,69,.45)_1px,transparent_1px)] [background-size:18px_18px]" />
-
-      {/* corner glow */}
-      <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[color:var(--color-gold)]/18 blur-2xl transition-opacity duration-300 group-hover:opacity-60" />
-
-      <div className="relative p-6 text-center">
-        {/* Icon Medallion (unique shape) */}
-        <div className="mx-auto mb-4 grid h-16 w-16 place-items-center">
-          <div className="relative">
-            {/* outer ring */}
-            <div className="h-16 w-16 rounded-[22px] border border-[color:var(--color-border)] bg-white/75 shadow-sm backdrop-blur" />
-
-            {/* gradient corner cut */}
-            <div className="absolute -right-1 -top-1 h-7 w-7 rounded-[14px] bg-[linear-gradient(135deg,var(--color-gold),var(--color-copper))] opacity-90" />
-
-            {/* inner emblem */}
-            <div className="absolute inset-2 grid place-items-center rounded-[18px] bg-[color:var(--color-paper)]/80">
-              <span className="text-xs font-semibold text-[color:var(--color-peacock)]">
-                {icon}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Title */}
-        <div className="mx-auto mb-3 inline-flex items-center justify-center rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2 text-sm font-semibold text-[color:var(--color-brand)]">
-          {title}
-        </div>
-
-        {/* Description */}
-        <p className="text-sm leading-relaxed text-[color:var(--color-ink)]/70">
-          {description}
-        </p>
-
-        {/* micro CTA */}
-        <div className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-[color:var(--color-peacock)]/80">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-gold)]" />
-          Learn more
-          <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">
-            →
-          </span>
-        </div>
-      </div>
-    </CardBox>
-  );
-}
+const areas = [
+  {
+    icon: "₹",
+    title: "Economic Empowerment",
+    description:
+      "Enabling entrepreneurship, MSMEs, and professionals through structured economic engagement.",
+  },
+  {
+    icon: "✶",
+    title: "Cultural Preservation",
+    description:
+      "Positioning regional heritage as global cultural and economic capital to drive tourism and pride.",
+  },
+  {
+    icon: "🌐",
+    title: "Global Collaboration",
+    description:
+      "Building cross-border partnerships, diaspora engagement, and international dialogue.",
+  },
+  {
+    icon: "⟡",
+    title: "Inclusivity & Sustainability",
+    description:
+      "Ensuring equitable, responsible, and long-term development outcomes for all communities.",
+  },
+];
 
 function CoreFocusAreas() {
   return (
-    <Section id="focus-areas" className="relative overflow-hidden">
-      {/* section glow */}
+    <Section id="focus-areas" className="relative overflow-hidden py-20 sm:py-28">
+      {/* Background Ambience - Subtle and Professional */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 opacity-[0.35] [background:radial-gradient(900px_circle_at_20%_10%,rgba(253,197,31,.35),transparent_55%),radial-gradient(900px_circle_at_90%_30%,rgba(20,48,69,.16),transparent_55%)]" />
-        <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(20,48,69,.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(20,48,69,.18)_1px,transparent_1px)] [background-size:32px_32px]" />
-        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[color:var(--color-gold)]/20 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[color:var(--color-peacock)]/15 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.4] [background:radial-gradient(1200px_circle_at_50%_50%,rgba(255,255,255,0.8),transparent_60%)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[color:var(--color-border)] to-transparent opacity-50" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-[color:var(--color-peacock)] backdrop-blur">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header - Minimalist */}
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-[color:var(--color-peacock)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-gold)]" />
-            OUR CORE FOCUS AREAS
+            OUR CORE FOCUS
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-gold)]" />
           </span>
-          <h2 className="mt-3 text-2xl sm:text-3xl font-semibold text-[color:var(--color-brand)]">
-            Four pillars that drive long-term regional prosperity
+          <h2 className="mt-5 text-3xl font-bold text-[color:var(--color-brand)]">
+            Four pillars of prosperity.
           </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-sm sm:text-base text-[color:var(--color-ink)]/65">
-            Each focus area is designed to work togetherstrengthening people,
-            institutions, and sustainable outcomes.
+          <p className="mx-auto mt-4 max-w-2xl text-[color:var(--color-ink)]/65">
+            Designed to work together strengthening people, institutions, and outcomes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Area
-            icon="₹"
-            title="Economic Empowerment"
-            description="Enabling entrepreneurship, MSMEs, and professionals through structured economic engagement."
-          />
-          <Area
-            icon="✶"
-            title="Cultural Preservation & Promotion"
-            description="Positioning regional heritage as global cultural and economic capital."
-          />
-          <Area
-            icon="⟲"
-            title="Global Collaboration"
-            description="Building cross-border partnerships, diaspora engagement, and international dialogue."
-          />
-          <Area
-            icon="⟡"
-            title="Inclusivity & Sustainability"
-            description="Ensuring equitable, responsible, and long-term development outcomes."
-          />
+        {/* The "Pillars" Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative">
+          
+          {/* Decorative Horizontal Line for Desktop (Top) */}
+          <div className="hidden lg:block absolute top-0 left-4 right-4 h-px bg-[color:var(--color-border)]/40" />
+
+          {areas.map((area, index) => (
+            <div
+              key={index}
+              className={`
+                group relative p-8 lg:p-10 flex flex-col items-start transition-all duration-500
+                /* Border Logic */
+                border-b border-[color:var(--color-border)]/40 lg:border-b-0
+                ${index % 2 === 0 ? "md:border-r" : ""} /* Add right border to every 2nd item on tablet */
+                lg:border-r lg:border-[color:var(--color-border)]/40
+                /* Remove right border from last item on desktop */
+                ${index === areas.length - 1 ? "lg:border-r-0" : ""}
+                
+                /* Hover Effect: Subtle background shift */
+                hover:bg-white/40
+              `}
+            >
+              {/* Vertical Line Highlight on Hover (Left side) */}
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[color:var(--color-gold)] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
+
+              {/* Icon / Number */}
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--color-peacock)]/5 text-[color:var(--color-peacock)] group-hover:bg-[color:var(--color-peacock)] group-hover:text-white transition-colors duration-300">
+                <span className="text-xl font-serif font-medium">{area.icon}</span>
+              </div>
+
+              {/* Title */}
+              <h4 className="text-lg font-bold text-[color:var(--color-brand)] mb-3 group-hover:translate-x-1 transition-transform duration-300">
+                {area.title}
+              </h4>
+
+              {/* Description */}
+              <p className="text-sm leading-relaxed text-[color:var(--color-ink)]/65 mb-6">
+                {area.description}
+              </p>
+
+              {/* "Learn More" Link - appears on hover or stays subtle */}
+              <div className="mt-auto pt-4 flex items-center text-[11px] font-bold uppercase tracking-wider text-[color:var(--color-gold)] opacity-80 group-hover:opacity-100">
+                <span className="border-b border-[color:var(--color-gold)] pb-0.5">
+                    Explore
+                </span>
+                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </div>
+            </div>
+          ))}
         </div>
+        
+        {/* Decorative Bottom Line for Desktop */}
+        <div className="hidden lg:block absolute bottom-0 left-4 right-4 h-px bg-[color:var(--color-border)]/40" />
+
       </div>
     </Section>
   );

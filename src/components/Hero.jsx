@@ -1,33 +1,19 @@
 import { useEffect, useState } from "react";
 import Section from "./Section";
 
-const banners = [
-  "/banner1.jpg",
-  "/banner2.jpg",
-];
+const banners = ["/banner2.jpg"];
 
 function Hero() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % banners.length);
-    }, 6000); // change every 6s
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <div id="home" className="relative overflow-hidden text-white">
-      {/* Grid stack keeps images in normal flow so height auto-adjusts */}
+      {/* Grid with fixed aspect ratio ensures consistent height */}
       <div className="grid w-full">
         {banners.map((src, i) => (
           <img
             key={src}
             src={src}
             alt="Hero banner"
-            aria-hidden={index !== i}
-            className="col-start-1 row-start-1 w-full h-auto object-contain transition-opacity duration-700"
-            style={{ opacity: index === i ? 1 : 0 }}
+            className="col-start-1 row-start-1 w-full h-auto object-cover object-center transition-opacity duration-700"
           />
         ))}
         {/* overlay */}

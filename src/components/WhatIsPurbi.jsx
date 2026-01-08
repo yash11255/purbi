@@ -1,5 +1,5 @@
 import Section from "./Section";
-import CardBox from "./ui/CardBox";
+import geomap from "../assets/map.jpg";
 
 function WhatIsPurbi() {
   return (
@@ -26,7 +26,7 @@ function WhatIsPurbi() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Left: Media frame (unique) */}
           <div className="relative">
             {/* outer frame */}
@@ -37,9 +37,7 @@ function WhatIsPurbi() {
               {/* inner canvas */}
               <div className="relative p-3">
                 <div className="relative wire-box h-64 sm:h-80 lg:h-[360px] rounded-[22px] overflow-hidden flex items-center justify-center bg-[color:var(--color-paper)]/70">
-                  <span className="text-sm text-[color:var(--color-ink)]/60">
-                    [Image Placeholder]
-                  </span>
+                  <img src={geomap} alt="map" className="h-full w-full object-cover" />
 
                   {/* subtle overlay */}
                   <div className="pointer-events-none absolute inset-0 opacity-[0.10] [background-image:linear-gradient(to_right,rgba(20,48,69,.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(20,48,69,.25)_1px,transparent_1px)] [background-size:44px_44px]" />
@@ -71,36 +69,50 @@ function WhatIsPurbi() {
             </div>
           </div>
 
-          {/* Right: content cards (distinct styling) */}
-          <div className="space-y-4">
-            <CardBox className="relative overflow-hidden rounded-[var(--radius-card)] border border-[color:var(--color-border)] bg-white/75 backdrop-blur shadow-[0_14px_45px_rgba(68,29,11,.10),0_2px_10px_rgba(20,48,69,.06)]">
-              {/* left rail */}
-              <div className="pointer-events-none absolute left-0 top-0 h-full w-1.5 bg-[linear-gradient(180deg,var(--color-gold),var(--color-copper),var(--color-peacock))]" />
-              <div className="relative p-5 sm:p-6">
-                <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-[color:var(--color-muted)] px-3 py-1 text-xs font-semibold text-[color:var(--color-peacock)]">
+          {/* Right: card-less editorial content */}
+          <div className="relative">
+            {/* subtle vertical guide (desktop) */}
+            <div className="pointer-events-none absolute left-0 top-0 hidden h-full w-px bg-[color:var(--color-border)]/70 lg:block" />
+
+            <div className="space-y-10 lg:pl-10">
+              {/* Mission (no card) */}
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-[color:var(--color-peacock)]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-gold)]" />
-                  Mission
+                  MISSION
                 </div>
-                <p className="text-[15px] leading-relaxed text-[color:var(--color-ink)]/80">
-                  PURBI (Purvanchal and Bihar International) is a key force that
-                  is working towards advancement of the economic, cultural, and
-                  human potential of Purvanchal and Bihar. It does this by
-                  connecting people, institutions, and regional strengths with
-                  national and global platforms.
+
+                <p className="mt-4 text-[17px] sm:text-[18px] leading-relaxed text-[color:var(--color-ink)]/80">
+                  PURBI (Purvanchal and Bihar International) is a key force that is
+                  working towards advancement of the economic, cultural, and human
+                  potential of Purvanchal and Bihar. It does this by connecting
+                  people, institutions, and regional strengths with national and
+                  global platforms.
                 </p>
-              </div>
-            </CardBox>
 
-            <CardBox className="relative overflow-hidden rounded-[var(--radius-card)] border border-[color:var(--color-border)] bg-white/75 backdrop-blur shadow-[0_14px_45px_rgba(68,29,11,.10),0_2px_10px_rgba(20,48,69,.06)]">
-              {/* subtle pattern */}
-              <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_1px_1px,rgba(20,48,69,.35)_1px,transparent_1px)] [background-size:18px_18px]" />
-              <div className="relative p-5 sm:p-6">
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-[color:var(--color-brand)] border border-[color:var(--color-border)]">
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {["People", "Institutions", "Regional Strengths", "Global Platforms"].map(
+                    (chip) => (
+                      <span
+                        key={chip}
+                        className="inline-flex items-center rounded-full border border-[color:var(--color-border)] bg-white/65 px-3 py-1 text-xs font-semibold text-[color:var(--color-ink)]/70"
+                      >
+                        <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[color:var(--color-gold)]" />
+                        {chip}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+
+              {/* Focus Areas (no card) */}
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-[color:var(--color-brand)]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-peacock)]" />
-                  Focus Areas
+                  FOCUS AREAS
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {[
                     "Economic Empowerment",
                     "Skill Development",
@@ -109,17 +121,17 @@ function WhatIsPurbi() {
                   ].map((chip) => (
                     <span
                       key={chip}
-                      className="inline-flex items-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-paper)]/70 px-3 py-1 text-xs font-medium text-[color:var(--color-ink)]/75"
+                      className="inline-flex items-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-paper)]/70 px-3.5 py-1.5 text-sm font-medium text-[color:var(--color-ink)]/75"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <a
                     href="#programs"
-                    className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-[#2a1606]
+                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-[#2a1606]
                     bg-[linear-gradient(135deg,var(--color-gold),var(--color-copper),var(--color-gold-2))]
                     hover:brightness-105 active:brightness-95 transition"
                   >
@@ -127,7 +139,7 @@ function WhatIsPurbi() {
                   </a>
                   <a
                     href="#contact"
-                    className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold
+                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold
                     border border-[color:var(--color-border)] bg-white/70 text-[color:var(--color-peacock)]
                     hover:bg-white transition"
                   >
@@ -135,7 +147,12 @@ function WhatIsPurbi() {
                   </a>
                 </div>
               </div>
-            </CardBox>
+
+              {/* small footer note (optional, improves density) */}
+              <div className="text-sm text-[color:var(--color-ink)]/55">
+                Built to create credibility, collaboration, and long-term outcomes.
+              </div>
+            </div>
           </div>
         </div>
       </div>
