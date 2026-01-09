@@ -36,10 +36,7 @@ function NavBar() {
               className="group flex items-center gap-3 rounded-2xl px-2 py-1 transition hover:bg-black/5"
             >
               <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-white shadow-sm">
-                {/* Replace this with <img src="..." /> */}
-
                 <img className="h-full w-full object-cover" src="/logo.jpeg" alt="PURBI logo" />
-
                 {/* corner glow */}
                 <div className="pointer-events-none absolute -left-6 -top-6 h-16 w-16 rounded-full bg-[color:var(--color-gold)]/30 blur-xl" />
               </div>
