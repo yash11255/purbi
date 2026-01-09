@@ -1,3 +1,5 @@
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
 import Blueprint from "./components/Blueprint";
@@ -10,23 +12,36 @@ import CallToAction from "./components/CallToAction";
 import InstitutionalAlignment from "./components/InstitutionalAlignment";
 import Partners from "./components/Partners";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div className="font-sans">
-      <NavBar />
-      <Hero />
-      <Blueprint />
-      <WhatIsPurbi />
-      <CoreFocusAreas />
-      <WhyPurbi />
-      <CoreDomains />
-      <WhoWeServe />
-      <CallToAction />
-      <InstitutionalAlignment />
-      <Partners />
-      <Footer />
-    </div>
+    <Router>
+      <div className="font-sans">
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Blueprint />
+                <WhatIsPurbi />
+                <CoreFocusAreas />
+                <WhyPurbi />
+                <CoreDomains />
+                <WhoWeServe />
+                <CallToAction />
+                <InstitutionalAlignment />
+                <Partners />
+              </>
+            }
+          />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
