@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import { Analytics } from "@vercel/analytics/react";
 import Hero from "./components/Hero";
 import Blueprint from "./components/Blueprint";
 import WhatIsPurbi from "./components/WhatIsPurbi";
@@ -25,9 +26,9 @@ function App() {
       <WhoWeServe />
       <CallToAction />
       <InstitutionalAlignment />
-     
       <ContactForm />
       <Footer />
+      <Analytics />
     </div>
   );
 }
