@@ -22,13 +22,10 @@ function Hero() {
         {/* Title overlay */}
         <div className="col-start-1 row-start-1 z-[2] flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 drop-shadow-lg">
-           
+            PURBI International
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-2 drop-shadow-lg">
-            
-          </p>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 drop-shadow-lg">
-            
+            Connecting East India to the World
           </p>
         </div>
 
