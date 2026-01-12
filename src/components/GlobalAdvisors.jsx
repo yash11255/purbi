@@ -1,5 +1,9 @@
+
 import Section from "./Section";
 import CardBox from "./ui/CardBox";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 function AdvisorSkeleton() {
   return (
@@ -52,8 +56,10 @@ function AdvisorSkeleton() {
   );
 }
 
+
 function GlobalAdvisors() {
   const advisorCount = 20;
+  const advisors = Array.from({ length: advisorCount });
 
   return (
     <Section id="advisors" className="relative overflow-hidden">
@@ -79,9 +85,27 @@ function GlobalAdvisors() {
           </p>
         </div>
 
-        {/* grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {Array.from({ length: advisorCount }).map((_, index) => (
+        {/* Carousel for mobile, grid for desktop */}
+        <div className="block sm:hidden">
+          <Swiper
+            spaceBetween={16}
+            slidesPerView={1.15}
+            centeredSlides={true}
+            style={{ paddingBottom: 32 }}
+            modules={[Autoplay]}
+            autoplay={{ delay: 2200, disableOnInteraction: false }}
+            speed={900}
+            loop={true}
+          >
+            {advisors.map((_, index) => (
+              <SwiperSlide key={index}>
+                <AdvisorSkeleton />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {advisors.map((_, index) => (
             <AdvisorSkeleton key={index} />
           ))}
         </div>
