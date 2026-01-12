@@ -10,6 +10,7 @@ import WhoWeServe from "./components/WhoWeServe";
 import CallToAction from "./components/CallToAction";
 import InstitutionalAlignment from "./components/InstitutionalAlignment";
 import Partners from "./components/Partners";
+import GlobalAdvisors from "./components/GlobalAdvisors";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 
@@ -26,6 +27,7 @@ function App() {
       <WhoWeServe />
       <CallToAction />
       <InstitutionalAlignment />
+      <GlobalAdvisors />
       <ContactForm />
       <Footer />
       <Analytics />

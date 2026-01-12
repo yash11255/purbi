@@ -58,6 +58,7 @@ function NavBar() {
                 ["About", "#about"],
                 ["Programs", "#programs"],
                 ["Initiatives", "#initiatives"],
+                ["Global Advisors", "#advisors"],
                 ["Contact", "#contact"],
               ].map(([label, href]) => (
                 <li key={href}>
@@ -153,6 +154,7 @@ function NavBar() {
                   ["About", "#about"],
                   ["Programs", "#programs"],
                   ["Initiatives", "#initiatives"],
+                  ["Global Advisors", "#advisors"],
                   ["Contact", "#contact"],
                 ].map(([label, href]) => (
                   <a
