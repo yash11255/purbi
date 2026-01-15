@@ -36,7 +36,7 @@ function NavBar() {
               className="group flex items-center gap-3 rounded-2xl px-2 py-1 transition hover:bg-black/5"
             >
               <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-white shadow-sm">
-                <img className="h-full w-full object-cover" src="/logo.jpeg" alt="PURBI logo" />
+                <img className="h-full w-full object-cover" src="/purbi PNG.png" alt="PURBI logo" />
                 {/* corner glow */}
                 <div className="pointer-events-none absolute -left-6 -top-6 h-16 w-16 rounded-full bg-[color:var(--color-gold)]/30 blur-xl" />
               </div>
@@ -45,9 +45,9 @@ function NavBar() {
                 <div className="text-sm font-semibold text-[color:var(--color-brand)]">
                   PURBI International
                 </div>
-                <div className="text-[11px] text-[color:var(--color-ink)]/60">
-                  Connect East to the World
-                </div>
+                  <div className="text-[11px] font-bold text-[color:var(--color-ink)]/70">
+                    Connect East to the World
+                  </div>
               </div>
             </a>
 

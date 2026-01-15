@@ -10,8 +10,20 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend or an email service
+    // Compose WhatsApp message
+    const message =
+      `New PURBI Contact Message:%0A` +
+      `Name: ${form.name}%0A` +
+      `Email: ${form.email}%0A` +
+      `Message: ${form.message}`;
+
+    // Use the same WhatsApp number as ContactForm
+    const waNumber = "919999999999";
+    const waUrl = `https://wa.me/${waNumber}?text=${message}`;
+
+    window.open(waUrl, "_blank");
     setSubmitted(true);
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
